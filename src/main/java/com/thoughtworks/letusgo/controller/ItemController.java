@@ -33,7 +33,7 @@ public class ItemController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void editItem(@RequestBody Item item) {
-        itemService.addItem(item);
+        itemService.editItem(item);
     }
 
     @RequestMapping(method = RequestMethod.POST)
