@@ -40,10 +40,6 @@ public class CartController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void addCartItem(@RequestBody CartItem cartItem) {
-        System.out.println("enter post cart---1");
-        System.out.println("number" + cartItem.getNumber() + "price" + cartItem.getItem().getPrice());
-        System.out.println("enter post cart---2");
-
         cartService.addCartItem(cartItem);
     }
 
