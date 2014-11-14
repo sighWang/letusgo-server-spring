@@ -2,6 +2,7 @@ package com.thoughtworks.letusgo.domain;
 
 public class CartItem {
 
+    private int id;
     private Item item;
     private double number;
     public CartItem(Item item, double number) {
@@ -25,6 +26,13 @@ public class CartItem {
         return getItem().getId();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setItem(Item item) {
         this.item = item;
     }
