@@ -78,4 +78,18 @@ public class CartDao {
         });
         return cartItems;
     }
+
+    public CartItem getCartItemByItemId(int id) {
+        String sql = "SELECT id,cart.number from cart where item_id = ?";
+        final CartItem cartItem = new CartItem();
+        jdbcTemplate.query(sql, new Object[] {id}, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+               cartItem.setId(rs.getInt("id"));
+                cartItem.setNumber(rs.getDouble("cart.number"));
+            }
+        });
+
+        return cartItem;
+    }
 }

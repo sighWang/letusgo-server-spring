@@ -35,4 +35,8 @@ public class CartService {
     public List<CartItem> getCartItems() {
         return cartDao.getCartItems();
     }
+
+    public CartItem getCartItemByItemId(int id) {
+        return cartDao.getCartItemByItemId(id);
+    }
 }
