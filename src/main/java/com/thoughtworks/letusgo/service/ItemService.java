@@ -17,10 +17,6 @@ public class ItemService {
 
     }
 
-    public ItemService(ItemDao itemDao) {
-        this.itemDao = itemDao;
-    }
-
     public void setItemDao(ItemDao itemDao) {
         this.itemDao = itemDao;
     }
