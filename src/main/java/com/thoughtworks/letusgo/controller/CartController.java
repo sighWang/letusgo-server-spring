@@ -4,12 +4,11 @@ import com.thoughtworks.letusgo.domain.CartItem;
 import com.thoughtworks.letusgo.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/cart")
 public class CartController {
 
