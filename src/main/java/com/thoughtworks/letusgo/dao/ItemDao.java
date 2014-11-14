@@ -83,7 +83,6 @@ public class ItemDao {
 
     public void removeItem(int id) {
         String sql = "DELETE FROM item WHERE id=?";
-
         jdbcTemplate.update(sql, id);
     }
 
