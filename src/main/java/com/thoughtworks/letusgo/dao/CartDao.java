@@ -32,7 +32,7 @@ public class CartDao {
 
     public void editCartItem(CartItem cartItem) {
         String sql = "UPDATE cart SET item_id = ?, number = ? WHERE id = ?";
-        jdbcTemplate.update(sql, cartItem.findItemId(), cartItem.getNumber(), cartItem.findItemId());
+        jdbcTemplate.update(sql, cartItem.findItemId(), cartItem.getNumber(), cartItem.getId());
     }
 
     public CartItem getCartItemById(int id) {

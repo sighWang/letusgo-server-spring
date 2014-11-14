@@ -76,9 +76,10 @@ public class ItemDao {
     public void editItem(Item item) {
         String sql = "UPDATE item SET item.barcode=?, item.name=?, item.unit=?, item.price=?, item.category_id=?" +
                 "WHERE item.id=?";
-
+        System.out.println("barcdoe" + item.getBarcode() + "name"+item.getName()+
+              " unit"+   item.getUnit() + "price" +item.getPrice()+"id" +item.getCategory().getId() +"id" + item.getId());
         jdbcTemplate.update(sql, item.getBarcode(), item.getName(),
-                item.getUnit(), item.getPrice(), item.getCategory().getId());
+                item.getUnit(), item.getPrice(), item.getCategory().getId(), item.getId());
     }
 
     public void removeItem(int id) {
