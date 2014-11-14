@@ -4,6 +4,9 @@
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
 	<display-name>Spring MVC Application</display-name>
+    <welcome-file-list>
+        <welcome-file>letusgo-client/app/index.html</welcome-file>
+    </welcome-file-list>
 
     <servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
@@ -13,6 +16,10 @@
 
 	<servlet-mapping>
 		<servlet-name>mvc-dispatcher</servlet-name>
-		<url-pattern>/api</url-pattern>
+		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/letusgo-client/*</url-pattern>
+    </servlet-mapping>
 </web-app>
