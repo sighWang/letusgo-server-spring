@@ -45,3 +45,7 @@ INSERT INTO item (barcode, name, unit, price, category_id)
       ('ITEM000006', '羽毛球拍', '副', 100.00, 4),
       ('ITEM000007', '袜子', '双', 5.00, 3),
       ('ITEM000008', '牙刷', '个', 5.00, 3);
+## insert original data
+INSERT INTO cart (item_id, number)
+    VALUES (2,2),
+      (3,2);
