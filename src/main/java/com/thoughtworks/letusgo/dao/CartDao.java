@@ -72,7 +72,8 @@ public class CartDao {
                 Category category = new Category(rs.getInt("category.id"), rs.getString("category.category_name"));
                 Item item = new Item(rs.getInt("item.id"), rs.getString("item.barcode"), rs.getString("item.name"),
                         rs.getString("item.unit"), rs.getDouble("item.price"), category);
-                CartItem cartItem = new CartItem(item, rs.getDouble("cart.number"));
+                int id = rs.getInt("cart.id");
+                CartItem cartItem = new CartItem(id,item, rs.getDouble("cart.number"));
                 cartItems.add(cartItem);
             }
         });

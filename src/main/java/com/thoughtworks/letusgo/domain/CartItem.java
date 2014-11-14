@@ -10,6 +10,12 @@ public class CartItem {
         this.number = number;
     }
 
+    public CartItem(int id, Item item, double number) {
+        this.id = id;
+        this.item = item;
+        this.number = number;
+    }
+
     public CartItem() {
 
     }
