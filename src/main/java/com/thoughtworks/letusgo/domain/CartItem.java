@@ -21,7 +21,7 @@ public class CartItem {
         return number;
     }
 
-    public int getItemId() {
+    public int findItemId() {
         return getItem().getId();
     }
 

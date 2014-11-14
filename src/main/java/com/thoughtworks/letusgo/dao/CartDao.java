@@ -22,7 +22,7 @@ public class CartDao {
     public void addCartItem(CartItem cartItem) {
         String sql = "INSERT INTO cart (item_id, number)" +
                 "values (?, ?)";
-        jdbcTemplate.update(sql, cartItem.getItemId(), cartItem.getNumber());
+        jdbcTemplate.update(sql, cartItem.findItemId(), cartItem.getNumber());
     }
 
     public void removeCartItem(int cartId) {
@@ -32,10 +32,11 @@ public class CartDao {
 
     public void editCartItem(CartItem cartItem) {
         String sql = "UPDATE cart SET item_id = ?, number = ? WHERE id = ?";
-        jdbcTemplate.update(sql, cartItem.getItemId(), cartItem.getNumber(), cartItem.getItemId());
+        jdbcTemplate.update(sql, cartItem.findItemId(), cartItem.getNumber(), cartItem.findItemId());
     }
 
     public CartItem getCartItemById(int id) {
+        final Item item = new Item();
         final CartItem cartItem = new CartItem();
         String sql = "SELECT item.*,cart.*,category.* FROM item,cart,category" +
                 " WHERE cart.id = ? AND cart.item_id = item.id AND item.category_id = category.id";
@@ -45,13 +46,12 @@ public class CartDao {
             public void processRow(ResultSet rs) throws SQLException {
                 int categoryId = rs.getInt("category.id");
                 String categoryName = rs.getString("category.category_name");
-                Category category = new Category(categoryId, categoryName);
-                int itemId = rs.getInt("item_id");
-                String barcode = rs.getString("item.barcode");
-                String name = rs.getString("item.name");
-                String unit = rs.getString("item.unit");
-                double price = rs.getDouble("item.price");
-                Item item = new Item(itemId, barcode, name, unit, price, category);
+                item.setId(rs.getInt("item_id"));
+                item.setBarcode(rs.getString("item.barcode"));
+                item.setName(rs.getString("item.name"));
+                item.setPrice(rs.getDouble("item.price"));
+                item.setUnit(rs.getString("item.unit"));
+                item.setCategory(new Category(categoryId, categoryName));
                 cartItem.setItem(item);
                 cartItem.setNumber(rs.getDouble("cart.number"));
             }
