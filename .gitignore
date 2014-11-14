@@ -114,6 +114,8 @@ com_crashlytics_export_strings.xml
 hs_err_pid*
 
 src/main/webapp/letusgo-client
+src/main/webapp/bower_components
+
 npm-debug.log
 ### Maven ###
 target/
