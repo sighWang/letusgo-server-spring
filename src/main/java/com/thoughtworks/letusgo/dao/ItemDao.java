@@ -87,7 +87,7 @@ public class ItemDao {
 
         final List<Item> items = new ArrayList<Item>();
 
-        String sql = "SELECT COUNT(*) FROM item, category WHERE category_id = ?";
+        String sql = "SELECT * FROM item, category WHERE category_id = ?";
         jdbcTemplate.query(sql, new Object[]{id}, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {

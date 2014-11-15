@@ -30,8 +30,8 @@ public class CategoryDao {
     }
 
     public void removeCategory(int id) {
-        String sql = "DELETE FROM category WHERE id=?";
-
+        String sql = "DELETE FROM category WHERE id = ?";
+        System.out.println(id);
         jdbcTemplate.update(sql, id);
     }
 
