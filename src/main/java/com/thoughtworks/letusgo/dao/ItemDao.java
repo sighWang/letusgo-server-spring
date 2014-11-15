@@ -74,8 +74,8 @@ public class ItemDao {
     }
     //TODO: need to be edit
     public void editItem(Item item) {
-        String sql = "UPDATE item SET barcode = ?, name = ?, unit = ?, price = ?, category_id = ?" +
-                "WHERE id = ?";
+        String sql = "UPDATE item SET barcode = ?, name = ?, unit = ?, price = ?, category_id = ? " +
+                " WHERE id = ?";
         System.out.println("barcdoe" + item.getBarcode() + "name"+item.getName()+
               " unit"+   item.getUnit() + "price" +item.getPrice()+"id" +item.getCategory().getId() +"id" + item.getId());
         String barcode = item.getBarcode();
@@ -84,7 +84,7 @@ public class ItemDao {
         double price = item.getPrice();
         int categoryId = item.getCategory().getId();
         int id = item.getId();
-        jdbcTemplate.update(sql, new Object[] {barcode, name, unit, price, categoryId, id});
+        jdbcTemplate.update(sql, barcode, name, unit, price,categoryId, id);
     }
 
     public void removeItem(int id) {
