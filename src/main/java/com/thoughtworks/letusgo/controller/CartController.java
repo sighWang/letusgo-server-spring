@@ -46,6 +46,10 @@ public class CartController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void editCartItem(@RequestBody CartItem cartItem) {
-        cartService.editCartItem(cartItem);
+        if(cartItem.getNumber() == 0){
+            cartService.removeCartItem(cartItem.getId());
+        } else{
+            cartService.editCartItem(cartItem);
+        }
     }
 }
