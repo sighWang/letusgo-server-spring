@@ -18,7 +18,7 @@
 *  Bootstrap
 *  HTML
 *  Bower
-### 使用方法
 
+### 使用方法
  在webapp/client下运行bower install
  为项目添加tomcat并运行
